@@ -3,8 +3,8 @@ const performance = require('perf_hooks').performance;
 
 const config = require('./src/config');
 const listener = require('./src/page-listener');
-const validation = require('./src/validate');
-const statuspageio = require('./src/statuspage');
+// const validation = require('./src/validate');
+// const statuspageio = require('./src/statuspage');
 
 const authenticator = require('authenticator');
 
@@ -73,7 +73,7 @@ const retry = (fn, ms = 1000, maxRetries = 5) =>
   const start = performance.now();
 
   // setup a listener for unhandled promise rejections
-  process.on('unhandledRejection', (reason, p) => {
+  process.on('unhandledRejection', (reason, _p) => {
     const error = `an unhandled rejection at with reason: ${reason}`;
     console.error(error);
 
